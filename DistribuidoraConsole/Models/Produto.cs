@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DistribuidoraConsole
+namespace DistribuidoraConsole.Models
 {
     class Produto
     {
-        //Aqui é um construtor (Este é oque está sendo utilizado)
+        //Aqui é um construtor
         public Produto()
         {
             CriadoEm = DateTime.Now;

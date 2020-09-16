@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DistribuidoraConsole
+namespace DistribuidoraConsole.Models
 {
     class Cliente
     {
