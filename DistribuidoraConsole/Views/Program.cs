@@ -11,12 +11,10 @@ namespace DistribuidoraConsole.Views
     {
         static void Main(string[] args)
         {
-            //Aqui é uma variável
+            //Aqui abaixo é referente ao import de dados automaticamente para adicionar as informações automaticamente
+            Dados.Inicializar();
+            //Aqui é uma variável utilizada para verificar qual a opção informada pelo usuário
             int opcao;
-
-            Produto p;
-
-            List<Produto> produtos = new List<Produto>();
 
             do
             {
@@ -28,6 +26,8 @@ namespace DistribuidoraConsole.Views
                 Console.WriteLine("4 - Listar Funcionários");
                 Console.WriteLine("5 - Cadastrar Produto");
                 Console.WriteLine("6 - Listar Produtos");
+                Console.WriteLine("7 - Cadastrar Venda");
+                Console.WriteLine("8 - Listar Vendas");
                 Console.WriteLine("0 - SAIR");
                 Console.WriteLine("\nDigite a opção desejada: ");
                 opcao = Convert.ToInt32(Console.ReadLine());
@@ -52,6 +52,12 @@ namespace DistribuidoraConsole.Views
                         break;
                     case 6:
                         ListarProduto.Executar();
+                        break;
+                    case 7:
+                        CadastrarVenda.Executar();
+                        break;
+                    case 8:
+                        ListarVendas.Executar();
                         break;
                     case 0:
                         Console.WriteLine("-- Saindo... --\n");

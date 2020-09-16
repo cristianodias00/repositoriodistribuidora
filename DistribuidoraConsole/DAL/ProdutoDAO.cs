@@ -39,5 +39,18 @@ namespace DistribuidoraConsole.DAL
             //E se pesquisou "foreach" inteiro e não encontrou ninguém (Ou seja, ao final é retornado NULL)
             return null;
         }
+        //public static Produto BuscarProdutoNome(string nome)
+        //{
+        //    foreach (Produto produtoCadastrado in produtos)
+        //    {
+        //        if (produtoCadastrado.Nome == nome)
+        //        {
+        //            return produtoCadastrado;
+        //        }
+        //    }
+        //    //Significa que foi pesquisado "foreach" na lista, e se não entrou no if significa que o cpf não era igual
+        //    //E se pesquisou "foreach" inteiro e não encontrou ninguém (Ou seja, ao final é retornado NULL)
+        //    return null;
+        //}
     }
 }
