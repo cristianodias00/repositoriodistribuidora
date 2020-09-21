@@ -14,16 +14,20 @@ namespace DistribuidoraConsole.DAL
                 Nome = "Univesidade POSITIVO",
                 Cpf = "05721782986"                
             };
+            ClienteDAO.Cadastrar(cliente);
+
             Produto produto = new Produto
             {
                 Tipo = "Bebida",
                 Nome = "Cerveja",
                 Marca = "Brahma",
-                Volume = "350",
+                Volume = 350,
                 Validade = "31/12/2020",
                 Preco = 2.29,
                 Quatidade = 10
             };
+            ProdutoDAO.Cadastrar(produto);
+
             Funcionario funcionario = new Funcionario
             {
                 Nome = "Cristiano Dias",
@@ -33,8 +37,6 @@ namespace DistribuidoraConsole.DAL
                 Cargo = "Analista de T.I",
                 Salario = "5.000,00"
             };
-            ClienteDAO.Cadastrar(cliente);
-            ProdutoDAO.Cadastrar(produto);
             FuncionarioDAO.Cadastrar(funcionario);
         }
     }

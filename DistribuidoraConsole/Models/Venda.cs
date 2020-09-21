@@ -16,7 +16,7 @@ namespace DistribuidoraConsole.Models
             //Somente no caso de "RELACIONAMENTOS". Sem está instancia, quando tentar salvar alguma coisa na classe relacionada, irá estourar a excessão Null
             Cliente = new Cliente();
             Funcionario = new Funcionario();
-            Produto = new Produto();
+            Itens = new List<ItemVenda>();
 
         }
 
@@ -24,9 +24,8 @@ namespace DistribuidoraConsole.Models
         //Neste caso o atributo foi definido como o proprio cliente pois está tendo um "RELACIONAMENTO" entre as classes
         public Cliente Cliente { get; set; }
         public Funcionario Funcionario { get; set; }
-        public Produto Produto { get; set; }
-        //Aqui abaixo, seria relacionado a quantidade do produto que está sendo VENDIDO
-        public int Quantidade { get; set; }
+        //Aqui abaixo é uma lista de itens de venda
+        public List<ItemVenda> Itens { get; set; }
         public DateTime CriadoEm { get; set; }
 
         //Aqui é realizado o sobreescrever o método

@@ -17,7 +17,7 @@ namespace DistribuidoraConsole.Models
         public string Tipo { get; set; }
         public string Nome { get; set; }
         public string Marca { get; set; }
-        public string Volume { get; set; }
+        public double Volume { get; set; }
         public string Validade { get; set; }
         public double Preco { get; set; }
         //Aqui abaixo, seria relacionado a quantidade do produto em ESTOQUE

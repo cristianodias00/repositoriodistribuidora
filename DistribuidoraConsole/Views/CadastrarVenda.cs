@@ -15,6 +15,7 @@ namespace DistribuidoraConsole.Views
             Cliente c = new Cliente();
             Funcionario f = new Funcionario();
             Produto p = new Produto();
+            ItemVenda iv = new ItemVenda();
 
             Console.WriteLine("-- Cadastrar Venda --");
             Console.WriteLine("Digite o CPF do cliente: ");
@@ -36,29 +37,48 @@ namespace DistribuidoraConsole.Views
                 if (f != null)
                 {
                     v.Funcionario = f;
-                    //Produto 
-                    Console.WriteLine("Digite a Marca do produto: ");
-                    p.Marca = Console.ReadLine();
-                    Console.WriteLine("Digite o Volume do produto: ");
-                    p.Volume = Console.ReadLine();
-                    //Aqui abaixo está sendo armazenado o resultado do MÉTODO dentro do objeto "c"
-                    p = ProdutoDAO.BuscarProduto(p.Marca, p.Volume);
-                    ///Somente entrará no laço se o produto existir
-                    if (p != null)
+                    do
                     {
-                        //Está abaixo é referente a QUANTIDADE em ESTOQUE
-                        v.Produto = p;
-                        Console.WriteLine("Digite a quantidade do produto: ");
-                        //Está abaixo é referente a QUANTIDADE que está sendo COMPRADA no momento
-                        v.Quantidade = Convert.ToInt32(Console.ReadLine());
-                        VendaDAO.Cadastrar(v);
-                        Console.WriteLine("Venda cadastrada com Sucesso!!");
-                    }
-                    else
+                        iv = new ItemVenda();
+                        p = new Produto();
+                        Console.Clear();
+                        Console.WriteLine("-- Adicionar Produto --\n");
+                        //Produto
+                        Console.WriteLine("Digite a Marca do produto: ");
+                        p.Marca = Console.ReadLine();
+                        Console.WriteLine("Digite o Volume do produto: ");
+                        p.Volume = Convert.ToDouble(Console.ReadLine());
+                        //Aqui abaixo está sendo armazenado o resultado do MÉTODO dentro do objeto "c"
+                        p = ProdutoDAO.BuscarProduto(p.Marca, p.Volume);
+                        if (p != null)
+                        {
+                            iv.Produto = p;
+                            Console.WriteLine("Digite a quantidade do produto: ");
+                            //Está abaixo é referente a QUANTIDADE que está sendo COMPRADA no momento
+                            iv.Quantidade = Convert.ToInt32(Console.ReadLine());
+                            //Aqui abaixo é preenchido o preço de venda "atual" do produto, e é guardado/salvo em "iv.Preco" .
+                            iv.Preco = p.Preco;
+                            //Aqui estamos pegando o objeto "v"-Venda e dentro dele nós temos o atributo "Itens" (Lembrando que este atributo é uma lista) 
+                            // Add(iv) está adicionando o "iv"-Item de venda dentro da lista de Itens
+                            v.Itens.Add(iv);
+                            Console.WriteLine("Produto cadastrado com Sucesso!!");
+                        }
+                        else
 
-                    {
-                        Console.WriteLine("\n-- Produto não encontrado! --");
-                    }
+                        {
+                            Console.WriteLine("\n-- Produto não encontrado! --");
+                        }
+                        Console.WriteLine("\nDeseja adicionar mais produtos? (S/N)");
+                        //ToUpper pega a letra digitada no console pelo usuario e transforma em caixa alta, após isso valida se é igual a "S"
+                    } while (Console.ReadLine().ToUpper() == "S");
+                    //Cadastrar Venda 
+                    //(Somente é cadastrada a venda após sair do laço de repetição acima, pois enquanto isso o sistema ficará adicionando produtos na lista de itens de venda
+                    VendaDAO.Cadastrar(v);
+                    Console.WriteLine("Venda cadastrada com Sucesso!!");
+
+
+                    ///Somente entrará no laço se o produto existir
+
                 }
                 else
                 {

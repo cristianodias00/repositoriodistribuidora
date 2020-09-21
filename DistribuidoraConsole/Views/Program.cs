@@ -28,6 +28,7 @@ namespace DistribuidoraConsole.Views
                 Console.WriteLine("6 - Listar Produtos");
                 Console.WriteLine("7 - Cadastrar Venda");
                 Console.WriteLine("8 - Listar Vendas");
+                Console.WriteLine("9 - Listar Vendas por Cliente");
                 Console.WriteLine("0 - SAIR");
                 Console.WriteLine("\nDigite a opção desejada: ");
                 opcao = Convert.ToInt32(Console.ReadLine());
@@ -57,7 +58,14 @@ namespace DistribuidoraConsole.Views
                         CadastrarVenda.Executar();
                         break;
                     case 8:
-                        ListarVendas.Executar();
+                        //Aqui vai ser executado a lista completa
+                        ListarVendas.Executar(VendaDAO.Listar());
+                        break;
+                    case 9:
+                        Console.Clear();
+                        Console.WriteLine("Digite o CPF do cliente: ");
+                        string cpf = Console.ReadLine();
+                        ListarVendas.Executar(VendaDAO.ListarPorCliente(cpf));
                         break;
                     case 0:
                         Console.WriteLine("-- Saindo... --\n");

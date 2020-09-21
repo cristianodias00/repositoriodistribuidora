@@ -26,7 +26,7 @@ namespace DistribuidoraConsole.DAL
 
         //Aqui é um método que faz a busca somente do cliente
         //Lembrando que sempre que é encontrada uma linha de retorno em um método, ele para a execução do método pois já houve retorno
-        public static Produto BuscarProduto(string marca, string volume)
+        public static Produto BuscarProduto(string marca, double volume)
         {
             foreach (Produto produtoCadastrado in produtos)
             {

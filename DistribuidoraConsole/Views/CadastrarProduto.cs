@@ -20,7 +20,7 @@ namespace DistribuidoraConsole.Views
             Console.WriteLine("Digite o Marca do produto: ");
             p.Marca = Console.ReadLine();
             Console.WriteLine("Digite o volume (ml) do produto: ");
-            p.Volume = Console.ReadLine();
+            p.Volume = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Digite a validade do produto: ");
             p.Validade = Console.ReadLine();
             Console.WriteLine("Digite o preço do produto: ");
